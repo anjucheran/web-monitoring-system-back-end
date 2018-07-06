@@ -1,0 +1,20 @@
+{
+  "name": "web-monitoring-system-back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Anju <anjucheran.15@cse.mrt.ac.lk>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5",
+    "rimraf": "^2.6.2"
+  }
+}
