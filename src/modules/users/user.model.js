@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize';
+import { hashSync } from 'bcrypt-nodejs';
 
 import sequelize from '../../config/database';
 
@@ -43,5 +44,15 @@ const User = sequelize.define('user', {
         }
     }
 }, { timestamps: false });
+
+User.beforeSave((user, options) => {
+    if (user.changed('password')) {
+        user.password = user.hashPassword(user);
+    }
+});
+
+User.prototype.hashPassword = (user) => {
+    return hashSync(user.password);
+};
 
 export default User;

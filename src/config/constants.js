@@ -1,5 +1,6 @@
 const devConfig = {
     DB : 'web-monitoring-dev',
+    JWT_SECRET: 'thisismysecret',
 };
 
 const testConfig = {

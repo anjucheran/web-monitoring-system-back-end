@@ -1,13 +1,23 @@
 import HTTPStatus from 'http-status';
+import jwt from 'jsonwebtoken';
 
 import User from './user.model';
+import constants from '../../config/constants';
+
+const createToken = (user) => {
+    return jwt.sign({
+        email: user.email
+    },
+    constants.JWT_SECRET
+    )
+};
 
 const toJSON = (user) => {
     return {
         email: user.email,
-        name: `${user.firstName} ${user.lastName}`
+        token: `bearer ${createToken(user)}`
     }
-}
+};
 
 export const signup = async (req, res) => {
     try {
