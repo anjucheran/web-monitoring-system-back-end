@@ -5,9 +5,9 @@ import sequelize from '../../config/database';
 
 const User = sequelize.define('user', {
     id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: Sequelize.UUIDV1,
     },
     email: {
         type: Sequelize.STRING,
