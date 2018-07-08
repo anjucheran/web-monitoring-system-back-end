@@ -3,12 +3,13 @@ import jwt from 'jsonwebtoken';
 
 import User from './user.model';
 import constants from '../../config/constants';
+import Web from '../webs/web.model';
 
 const createToken = (user) => {
     return jwt.sign({
         email: user.email
     },
-    constants.JWT_SECRET
+        constants.JWT_SECRET
     )
 };
 
@@ -29,7 +30,24 @@ export const signup = async (req, res) => {
 };
 
 export const login = (req, res, next) => {
-    res.status(HTTPStatus.CREATED).json(toJSON(req.user));
+    res.status(HTTPStatus.OK).json(toJSON(req.user));
 
     // return next();
 };
+
+// export const getWebs = async (req, res) => {
+//     try {
+//         const user = await User.findOne({
+//             where: {
+//                 id: req.user.id
+//             },
+//             include: [{
+//                 model: Web
+//             }]
+//         });
+//         res.status(HTTPStatus.OK).json(req.user);
+//     } catch (e) {
+//         console.log(e);
+//         return res.status(HTTPStatus.BAD_REQUEST).json(e);
+//     }
+// }

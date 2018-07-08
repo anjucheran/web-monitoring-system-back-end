@@ -34,7 +34,6 @@ const Web = sequelize.define('web', {
     }
 }, { timestamps: false });
 
-User.hasMany(Web, { onDelete: 'cascade', onUpdate: 'cascade' });
 Web.belongsTo(User, { onDelete: 'cascade', onUpdate: 'cascade' });
 
 export default Web;

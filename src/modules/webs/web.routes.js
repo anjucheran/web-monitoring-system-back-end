@@ -7,4 +7,6 @@ const routes = new Router();
 
 routes.post('/', authJWT, webController.addWeb);
 
+routes.get('/', authJWT, webController.getWebs);
+
 export default routes;
