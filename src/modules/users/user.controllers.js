@@ -34,20 +34,3 @@ export const login = (req, res, next) => {
 
     // return next();
 };
-
-// export const getWebs = async (req, res) => {
-//     try {
-//         const user = await User.findOne({
-//             where: {
-//                 id: req.user.id
-//             },
-//             include: [{
-//                 model: Web
-//             }]
-//         });
-//         res.status(HTTPStatus.OK).json(req.user);
-//     } catch (e) {
-//         console.log(e);
-//         return res.status(HTTPStatus.BAD_REQUEST).json(e);
-//     }
-// }
