@@ -1,6 +1,5 @@
 import HTTPStatus from 'http-status';
 
-import User from '../users/user.model';
 import Web from './web.model';
 
 export const addWeb = async (req, res) => {
@@ -22,10 +21,7 @@ export const getWebs = async (req, res) => {
         const webs = await Web.findAll({
             where: {
                 userId: req.user.id
-            },
-            include: [{
-                model: User
-            }],
+            }
         });
         return res.status(HTTPStatus.OK).json(webs);
     } catch (e) {
@@ -44,6 +40,7 @@ export const getWeb = async (req, res) => {
 
 export const updateWeb = async (req, res) => {
     try {
+        console.log('Hello brother!!')
         const web = await Web.update(
             { ...req.body },
             {
@@ -60,12 +57,14 @@ export const updateWeb = async (req, res) => {
 
 export const deleteWeb = async (req, res) => {
     try {
-        const web = await Web.destroy({
+        const web = await Web.findOne({
             where: {
-                id: req.params.id
+                id: req.body.id
             }
         });
-        return res.status(HTTPStatus.OK).json(web);
+        console.log('web', web)
+        await web.destroy();
+        return res.status(HTTPStatus.OK).send();
     } catch (e) {
         return res.status(HTTPStatus.BAD_REQUEST).json(e);
     }

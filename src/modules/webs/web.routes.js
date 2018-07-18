@@ -12,8 +12,10 @@ routes.get('/', authJWT, webController.getWebs);
 
 routes.get('/:id', authJWT, isOwner, webController.getWeb);
 
-routes.put('/:id', authJWT, isOwner, webController.updateWeb);
+routes.post('/delete', authJWT, isOwner, webController.deleteWeb);
 
-routes.delete('/:id', authJWT, isOwner, webController.deleteWeb);
+routes.post('/:id', authJWT, isOwner, webController.updateWeb);
+
+
 
 export default routes;

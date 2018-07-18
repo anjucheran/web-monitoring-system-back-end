@@ -15,7 +15,6 @@ const User = sequelize.define('user', {
         unique: true,
         validate: {
             isEmail: {
-                args: true,
                 msg: 'Email is not valid!',
             }
         },

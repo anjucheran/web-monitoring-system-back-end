@@ -9,6 +9,10 @@ const Web = sequelize.define('web', {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV1
     },
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
     address: {
         type: Sequelize.STRING,
         allowNull: false,
